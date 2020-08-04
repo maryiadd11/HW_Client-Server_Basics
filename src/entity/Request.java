@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class Request {
 
     private String method;
-    private final String protocol = " / HTTP/1.1";
+    private static final String PROTOCOL = "HTTP/1.1";
     private HashMap<String, String> headers = new HashMap<>();
     private String body;
 
@@ -37,8 +37,8 @@ public class Request {
         this.method = method;
     }
 
-    public String getProtocol() {
-        return protocol;
+    public static String getPROTOCOL() {
+        return PROTOCOL;
     }
 
     public HashMap<String, String> getHeaders() {
@@ -62,9 +62,9 @@ public class Request {
     }
 
 
-
     @Override
     public String toString() {
-        return method + protocol + "\r\n" + headers.toString() + body + "\r\n\r\n";
+        return method + " / " + PROTOCOL + "\r\n" + headers + "\r\n" + body + "\r\n\r\n";
     }
+
 }
